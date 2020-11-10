@@ -21,7 +21,7 @@ const query = gql`
         id
         name
         description
-        costPerLaunch: cost_per_launch
+        cost_per_launch
     }
     }`
 //Apollo object that allows us to use the apollo object in our vue-comp
