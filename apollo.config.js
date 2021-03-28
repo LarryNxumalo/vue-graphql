@@ -1,8 +1,8 @@
 module.exports = {
     client: {
         service: {
-            name: "spacex-graphql-api",
-            url: "https://api.spacex.land/graphql"
+            name: "kasioke-graphql-api",
+            url: "http://localhost:4000/graphql"
         },
         includes: ["src/**/*.vue", "src/**/*.js"]
     }

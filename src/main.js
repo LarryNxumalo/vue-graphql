@@ -5,7 +5,7 @@ import VueApollo from 'vue-apollo'
 import ApolloClient from 'apollo-boost'
 
 const apolloClient = new ApolloClient({
-  uri: 'https://api.spacex.land/graphql'
+  uri: 'http://localhost:4000/graphql'
 })
 
 const apolloProvider = new VueApollo({

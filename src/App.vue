@@ -1,36 +1,56 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/rockets">Rockets</router-link>
+    <div class="nav">
+      <div class="exit-fullscreen" v-if="exit == true" @click="closeFS">EXIT</div>
+    <img  class="logo" alt="logo" src="./assets/logo.svg" @click="fullScreen">
+      <router-link to="/">
+        <img alt="logo" src="./assets/icons/home.svg">
+        home
+      </router-link>
+      <router-link to="/search">
+        <img alt="logo" src="./assets/icons/search.svg">
+        search
+      </router-link>
+      <router-link to="/songs">
+        <img alt="logo" src="./assets/icons/songs.svg">
+        your songs
+      </router-link>
+      <router-link to="/podcasts">
+        <img alt="logo" src="./assets/icons/podcasts.svg">
+        podcasts
+      </router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+  data(){
+    return {
+      small: false
+    }
+  },
+  methods: {
+    fullScreen(){
+      //full screen code
+      this.small !== this.small
+      document.body.requestFullscreen();
+    },
+    closeFS(){
+      //exit full screen code
+      // this.exit = false
+       document.body.exitFullscreen();
+    }
+  },
+  mounted() {
+     this.fullScreen()
+  },
 }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-li {
-  list-style-type: none;
-}
+ <style lang="scss">
+  @import './assets/scss/style.scss';
 </style>
+
+
