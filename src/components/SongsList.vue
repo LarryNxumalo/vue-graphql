@@ -1,12 +1,7 @@
 <template>
     <div class="songs-wrapper">
         <div class="header">
-            <h1>Top <sup>{{ search }}</sup></h1>
-                <div class="top-five" v-for="(topfive, index) in topfive" :key="index">
-                <img class="thumb" :src="topfive.albumart" alt="">
-            </div>
-
-            <h1>Sang songs</h1>
+             <h1>Sang songs</h1>
             <form>
                 <input  type="text"
                         placeholder="Search for your songs 2"
@@ -16,6 +11,12 @@
                     <img src="../assets/icons/header-s.svg" alt="">
                 </button>
             </form>
+            <h1>Top <sup>{{ search }}</sup></h1>
+                <div class="top-five" v-for="(topfive, index) in topfive" :key="index">
+                <img class="thumb" :src="topfive.albumart" alt="">
+            </div>
+
+
             <!-- <p>Message is: {{ search }}</p> -->
         </div><!--end.header-->
         <div class="song" v-for="(song, index) in songs" :key="index">
@@ -87,11 +88,16 @@ export default {
       topfive(){
         // console.log(this.songs)
         let songs = this.songs
-        let result = songs.filter(song => song.id < 6)
-        if (result.length) {
-          result.length = 5
-        }
-        return result
+        let search = this.search
+        let result = songs.filter(song => song.song ==  search || song.author == search)
+
+        // if (result.length) {
+        //    result.length = search
+        // }
+        // else {
+        //     result.length = 5
+        // }
+        return result;
         // songs.length = 5
         // songs.splice(1,0,{
         //     audio:"https://larrynxumalo.github.io/kasioke/music/PhantomSteeze-Stimela.mp3",

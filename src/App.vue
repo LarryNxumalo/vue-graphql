@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="nav">
-      <div class="exit-fullscreen" v-if="exit == true" @click="closeFS">EXIT</div>
+      <div class="exit-fullscreen" v-if="small" @click="closeFS">EXIT</div>
     <img  class="logo" alt="logo" src="./assets/logo.svg" @click="fullScreen">
       <router-link to="/">
         <img alt="logo" src="./assets/icons/home.svg">
@@ -34,12 +34,15 @@ export default {
   methods: {
     fullScreen(){
       //full screen code
-      this.small !== this.small
       document.body.requestFullscreen();
+      if(document.body.requestFullscreen.length == 0){
+        this.small == true
+      }
+      // console.log(document.body.requestFullscreen.length)
     },
     closeFS(){
       //exit full screen code
-      // this.exit = false
+      this.exit = false
        document.body.exitFullscreen();
     }
   },
