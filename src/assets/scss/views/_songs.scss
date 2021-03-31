@@ -1,4 +1,6 @@
 main.songs {
+    // background: $red;
+    background: #0F0F0F;
     display: flex;
     flex-direction: column;
     // padding-left: 10px;
@@ -7,15 +9,17 @@ main.songs {
     .header {
         display: flex;
         align-items: center;
-        position: fixed;
+        // position: absolute;
         width: 100%;
-        padding: 0 2rem;
+        // padding: 0 2rem;
         background: $black;
         z-index: 9;
+        margin-bottom: 40px;
         &.isclear {
             background: none;
             -webkit-backdrop-filter: blur(40.6833px);
             backdrop-filter: blur(40.6833px);
+            box-shadow:  5px 5px 9px #060606, -5px -5px 9px #181818;
         }
 
         p {
@@ -51,27 +55,32 @@ main.songs {
                 height: 4.6rem;
                 margin-right: 2rem;
                 position: relative;
-                z-index: -1;
-                &::after {
-                    content: "";
-                    display: block;
-                    background: green;
-                    width: 5rem;
-                    height: 5rem;
+                z-index: 8;
+                border: 2px solid $red;
+                animation: halo 1s ease-in-out infinite alternate;
+                @keyframes halo {
+                    0% {
+                        transform: scale(.8);
+                    }
+                    100%{
+                        transform: scale(1.01);
+                    }
+                }
+                .thumb-img {
+                    border-radius: 2.7rem;
+                    width: 4rem;
+                    height: 4rem;
                     position: absolute;
-                    border-radius: 50%;
-                    border: 1px solid $red;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    z-index: 1;
-
                 }
             }
 
         }
         form {
             width: 50%;
+            max-width: 40rem;
             position: relative;
             input {
                 padding: 0 2rem 0 5rem;
@@ -82,7 +91,6 @@ main.songs {
                 width: 100%;
                 height: 50px;
                 font-size: 1.5rem;
-
             }
             button {
                 position: absolute;
@@ -102,7 +110,6 @@ main.songs {
         padding-top: 72px;
         width: 100%;
         height: 100%;
-        padding-left: 10px;
         display: flex;
         position: absolute;
         // transform: rotate(-15.97deg);
@@ -115,23 +122,61 @@ main.songs {
         //     transform: rotate(0deg);
         // }
 
-        .song{
-            // background-color: aqua;
+        .song {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 27px;
+            padding: 15px;
             max-width: 257px;
             max-height: 340px;
             height: 100%;
             width: 100%;
             margin: 10px;
+            cursor: pointer;
+            border: 1px solid $black;
+            box-shadow:  5px 5px 9px #060606, -5px -5px 9px #181818;
+            transition: all ease-in-out .35s;
+
+
+            &:hover {
+              border: 1px solid $red;
+              transform: scale(1.03);
+            //   box-shadow: inset 5px 5px 9px #0b0b0b,
+            //     inset -5px -5px 9px #131313;
+                img {
+                    transform: scale(.9);
+                    border-radius: 50%;
+                }
+
+                .text {
+                    transition: all ease-in-out 1s;
+                   h3 {
+                    font-size: 2rem;
+                   }
+                    // text-align: center;
+
+                }
+            }
             img {
                 border-radius: 27px;
-                height: 257px;
-                width: 257px;
+                height: 212px;
+                width: 212px;
                 max-width: 257px;
+                margin-bottom: 7px;
+                transition: all ease-in-out .3s;
 
             }
-            h3 {
-                font-size: 1.5rem;
+            .text {
+                text-align: center;
+
+                h3 {
+                    font-size: 1.5rem;
+                    transition: all ease-in-out .35s;
+                }
             }
+
         }
 
     }

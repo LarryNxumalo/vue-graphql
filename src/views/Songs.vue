@@ -2,22 +2,6 @@
   <main class="songs">
     <div class="header isclear">
        <h1 class="ismoving"><strong>Ungazncishi</strong> nice time finally @number#3</h1>
-       <!-- <img :src="songs.albumart[0]" alt="thumbnail"> -->
-       <!-- <div class="top-five" v-for="(topfive, index) in topfive" :key="index">
-         <img class="thumb" :src="topfive.albumart" alt="">
-       </div> -->
-
-
-       <!-- <form>
-          <input  type="text"
-                  placeholder="Search for your songs"
-                  v-model="search"
-                  />
-          <button @click.prevent='searchData'>
-            <img src="../assets/icons/header-s.svg" alt="">
-          </button>
-       </form> -->
-       <!-- <p>Message is: {{ search }}</p> -->
     </div>
     <SongsList />
   </main>
@@ -79,9 +63,9 @@ export default {
         // console.log(this.songs)
         let songs = this.songs
         let result = songs.filter(song => song.id < 6)
-        if (result.length) {
-          result.length = 5
-        }
+        // if (result.length) {
+        //   result.length = 5
+        // }
         return result
         // songs.length = 5
         // songs.splice(1,0,{

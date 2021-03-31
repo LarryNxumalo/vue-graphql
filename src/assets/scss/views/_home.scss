@@ -1,0 +1,162 @@
+main.home {
+    position: relative;
+    .home-wrapper {
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .splash {
+            height: 60vh;
+            width: 100%;
+            background:  red;
+            z-index: 99  ;
+            display: flex;
+            align-items: center;
+            transition: all ease-in-out .5s;
+            cursor: pointer;
+            &:hover {
+                // background: rgba(255, 255, 255, .1);
+                img {
+                    transform: scale(1.1);
+                }
+                .splash-text {
+                    transform: scale(1.1);
+                    h1 {
+                        animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+                        // animation: rainbow-text-animation 0.5s ease forwards;
+                    }
+                }
+            }
+
+            .vue-dis {
+                width:50%;
+                background: $black;
+                canvas {
+                    background: $black;
+                    &:hover {
+                        // transform: scale(1.010);
+                        transition: all ease-in-out .35s;
+                    }
+
+                }
+            }
+
+
+
+
+            .splash-text {
+                // height: 50vh;
+                width: 50%;
+                transition: all ease-in-out .5s;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding-bottom: 70px;
+                padding-right: 110px;
+                // justify-content: flex-end;
+                h1 {
+                    font-size: 8rem;
+                    font-weight: $font-weight-bold;
+                    background-image: $flag-gradient;
+                    /* Set the background size and repeat properties. */
+                    background-size: 7%;
+                    background-repeat: repeat;
+
+                    /* Use the text as a mask for the background. */
+                    /* This will show the gradient as a text color rather than element bg. */
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-text-stroke: 2px white;
+
+                    /* Animate the text when loading the element. */
+                    /* This animates it on page load and when hovering out. */
+                    animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+                    // animation: rainbow-text-animation-rev 0.5s ease forwards;
+                    /* Move the background and make it smaller. */
+                    /* Animation shown when entering the page and after the hover animation. */
+                    @keyframes rainbow-text-simple-animation-rev {
+                        0% {
+                            background-size: 650%;
+                        }
+                        40% {
+                            background-size: 650%;
+                        }
+                        100% {
+                            background-size: 100%;
+                        }
+                    }
+                    /* Move the background and make it larger. */
+                    /* Animation shown when hovering over the text. */
+                    @keyframes rainbow-text-simple-animation {
+                        0% {
+                            background-size: 100%;
+                        }
+                        80% {
+                            background-size: 650%;
+                        }
+                        100% {
+                            background-size: 650%;
+                        }
+                    }
+                    /* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-animation {
+    0% {
+      background-size: 57%;
+      background-position: 0 0;
+    }
+    20% {
+      background-size: 57%;
+      background-position: 0 1em;
+    }
+    100% {
+      background-size: 300%;
+      background-position: -9em 1em;
+    }
+  }
+
+  /* Move the background and make it smaller. */
+  /* Animation shown when entering the page and after the hover animation. */
+  @keyframes rainbow-text-animation-rev {
+    0% {
+      background-size: 300%;
+      background-position: -9em 1em;
+    }
+    20% {
+      background-size: 57%;
+      background-position: 0 1em;
+    }
+    100% {
+      background-size: 57%;
+      background-position: 0 0;
+    }
+  }
+                }
+
+                h2 {
+                    font-size: 4rem;
+                    font-weight: $font-weight-book;
+                }
+                h3 {
+                    font-size: 2rem;
+                    font-weight: $font-weight-light;
+                }
+            }
+        }
+        .bottom-splash {
+            // border: 1px solid ;
+            height: 30vh;
+            width: 100%;
+            background: $black;
+            z-index: 999;
+            // border-radius:0 27px 0 0;
+            box-shadow:  -190px -170px 76px  $black, 60px -170px 76px  $black;
+            transition: all ease-in-out .5s;
+        }
+    }
+}

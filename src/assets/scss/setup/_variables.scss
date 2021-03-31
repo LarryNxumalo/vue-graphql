@@ -7,9 +7,31 @@ $font-weight-bold:      bold;
 $font-weight-black:     600;
 
 // colours
-$black: #000000;
+$black: #0F0F0F;;
 $red: #FF0000;
 $nav-bg: #0F0F0F;
+$yellow: #F9BC04;
+
+//Flag Colors
+$f-red: #E03C30;
+$f-yellow: #F9B81C;
+$f-green: #227649;
+$f-blue: #0B1589;
+
+
+$flag-gradient: linear-gradient(
+        45deg,
+        #fff 16.666%,
+        $f-red 16.666%,
+        $f-red 33.333%,
+        $f-yellow 33.333%,
+        $f-yellow 50%,
+        $f-green 50%,
+        $f-green 66.666%,
+        $f-blue 66.666%,
+        $f-blue 83.333%,
+        #fff 83.333%);
+
 // $even-header: #1c233c;
 // $odd-header: #1f2e49;
 // $white: #ffffff;
