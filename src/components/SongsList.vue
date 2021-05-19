@@ -11,11 +11,13 @@
                     <img src="../assets/icons/header-s.svg" alt="">
                 </button>
             </form>
+            <!-- test search output -->
             <h1>Top <sup>{{ search }}</sup></h1>
-            <div class="top-five" v-for="(topfive, index) in topfive" :key="index">
+            <!-- .... -->
+            <div class="top-five" v-for="(five, index) in topfive | search" :key="index">
 
                 <div class="thumb">
-                     <img class="thumb-img" :src="topfive.albumart" alt="">
+                     <img class="thumb-img" :src="five.albumart" alt="">
                 </div>
             </div>
 
@@ -61,6 +63,9 @@ export default {
     name: 'SongsList',
     // props: ['query'],
     apollo: {
+        // skipAllQueries(){
+        //     return this.lazyload === false
+        // },
         songs: {
             query: GET_ALL_SONGS_QUERY
         }

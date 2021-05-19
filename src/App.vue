@@ -5,21 +5,25 @@
     <img  class="logo" alt="logo" src="./assets/logo.svg" @click="fullScreen">
       <router-link to="/">
         <img alt="logo" src="./assets/icons/home.svg">
-        home
+
       </router-link>
       <router-link to="/search">
         <img alt="logo" src="./assets/icons/search.svg">
-        search
+
       </router-link>
       <router-link to="/songs">
         <img alt="logo" src="./assets/icons/songs.svg">
-        your songs
+
       </router-link>
       <router-link to="/podcasts">
         <img alt="logo" src="./assets/icons/podcasts.svg">
-        podcasts
+
+      </router-link>
+      <router-link to="/login">
+        Sign In
       </router-link>
     </div>
+    
     <router-view/>
   </div>
 </template>

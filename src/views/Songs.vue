@@ -15,7 +15,7 @@ import SongsList from '@/components/SongsList.vue'
 import gql from "graphql-tag"
 
 const GET_ALL_SONGS_QUERY = gql`
-    query getSongs{
+    query getAll{
     songs {
         id
         albumart
@@ -55,14 +55,13 @@ export default {
            console.log(`'no matches found for'${data.song}`)
          }
         //  this.$router.push(`${data.song}`)
-
       }
     },
     computed: {
       topfive(){
         // console.log(this.songs)
         let songs = this.songs
-        let result = songs.filter(song => song.id < 6)
+        let result = songs.filter(song => song.id)
         // if (result.length) {
         //   result.length = 5
         // }

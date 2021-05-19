@@ -14,13 +14,13 @@
             :isInteractive="true"></vue-displacement-slideshow>
             <!-- <img src="../assets/posters/riky-poster-nbg.png"> -->
             <div class="splash-text">
-                <h2>Riky Rick</h2>
-                <h3>Ungazncishi </h3>
+                <h2>Ungazncishi</h2>
+                <h3>Riky Rick</h3>
                 <h1>South&nbsp;Africa's Nomber <br>Uno</h1>
             </div>
         </div>
         <div class="bottom-splash">
-              <Canvas/>
+              <!-- <Canvas/> -->
         </div>
         <!-- <Header/> -->
         <!-- <div class="song" v-for="(song, index) in songs" :key="index"> -->
@@ -40,35 +40,23 @@
 <script>
 // import Header from "../global/Header"
 //GQL Needed to be able to send graphQL query strings properly parsed to graphql servers
-import gql from "graphql-tag"
-import Canvas from './Canvas.vue'
- import VueDisplacementSlideshow from "vue-displacement-slideshow";
 
-const GET_ALL_SONGS_QUERY = gql`
-    query getSongs{
-    songs {
-        id
-        albumart
-        author
-        audio
-        song
-        json
-    }
-}`
+// import Canvas from './Canvas.vue'
+ import VueDisplacementSlideshow from "vue-displacement-slideshow";
 
 
 //Apollo object that allows us to use the apollo object in our vue-comp
 export default {
     name: 'SongsList',
     // props: ['query'],
-    apollo: {
-        songs: {
-            query: GET_ALL_SONGS_QUERY
-        }
-    },
+    // apollo: {
+    //     songs: {
+    //         query: GET_ALL_SONGS_QUERY
+    //     }
+    // },
     components: {
         VueDisplacementSlideshow,
-        Canvas,
+        // Canvas,
         // Header
     },
     data(){
@@ -77,33 +65,15 @@ export default {
         }
     },
     methods:{
-         searchData(){
-         let data = {
-            query: this.search,
-            song: this.search.toLowerCase().replace(/ /g, '_')
-         };
-
-         if(data.song == this.songs){
-           //  this.$router.push(`${data.song}`
-           console.log(data.song)
-         } else {
-           console.log(`'no matches found for'${data.song}`)
-         }
-        //  this.$router.push(`${data.song}`)
-
-      },
 
       init() {
                 //We loop through all our images by calling the 'next' method of our component every 2 seconds
                 setInterval(() => {
-                    this.$refs.slideshow.next();
+                    if(this.$refs.slideshow){
+                          this.$refs.slideshow.next();
+                    }
                 }, 2000);
             }
-
-        // gotoSong(song){
-            // let audio = this.song.audio
-            // console.log(song)
-        // }
     },
     computed: {
       topfive(){
@@ -113,12 +83,6 @@ export default {
         let search = query.replace('-[a-z]+', 'g')
         let result = songs.filter(song => song.song ==  search || song.author == search || song.id == search)
 
-        // if (result.length) {
-        //    result.length = search
-        // }
-        // else {
-        //     result.length = 5
-        // }
         return result;
         // songs.length = 5
         // songs.splice(1,0,{
